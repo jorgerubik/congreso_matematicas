@@ -1,8 +1,8 @@
 <?php
 
 $host = "localhost";
-$user = "congreso";
-$pass = "P4rtIcuL4rJusTIc3";
+$user = "root";
+$pass = "0515delux!";
 $db = "congresomat";
 
 ?>
