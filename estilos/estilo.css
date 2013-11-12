@@ -1,0 +1,510 @@
+#0E0707	/*Tipo de letra general*/
+@font-face{
+    font-family: 'Helvetica-Normal';
+    src: url('../font/Helvetica-Normal.ttf');
+}
+/*Tipo de letra títulos*/
+@font-face {
+  font-family: 'CarroisGothicSC-Regular';
+  src: url('../font/CarroisGothicSC-Regular.ttf');
+}
+/*Clase tipo de letra para títulos*/
+.font_titulos {
+  font-family: 'CarroisGothicSC-Regular',sans-serif;
+}
+/*estilo del cuerpo de la pagina*/
+body{
+	background: url('../imagenes/bg.png') fixed center;
+	text-align: center;
+}
+
+/*Estilo para definir ancho y largo de la página*/
+#formatopagina{
+        width: 1000px;
+        height: 1020px;
+        border: 3px;
+        margin:0 auto 0 auto;
+        font-family: 'HelveticaLTStd-Roman',verdana;
+}
+.formatocontenidoslider{
+	height: 840px;
+}
+.formatocentro{
+	height: 840px;
+}
+/*estilo del encabezado*/
+#header{
+	height: 200px;
+	width: 99%;
+	background: -moz-linear-gradient(top, white, #BD8C00) ;
+	background: -webkit-linear-gradient(top, white, #BD8C00) ;
+	background: -ms-linear-gradient(top, white, #BD8C00) ;
+	background: linear-gradient(top, white, #BD8C00) ;
+	margin-left: 2px;
+	border-radius: 3px;
+	border-color: #BD8C00;
+	margin: 2px;
+	border-style: solid;
+}	
+
+/*Estilo de las imagenes del encabezado*/
+#banner{
+	width: 100%;
+	height: 100%;
+}
+#logo{
+	width: 100%;
+	height: 100%;
+}
+
+/*estilo de la barra de navegaciÃ³n*/
+#nav{
+	background: -moz-linear-gradient(top, white, #BD8C00) ;
+	background: -webkit-linear-gradient(top, white, #BD8C00) ;
+	background: -ms-linear-gradient(top, white, #BD8C00) ;
+	background: linear-gradient(top, white, #BD8C00) ;
+	width:20%;
+	border-radius: 3px;
+	display: inline-block;
+	float: left;
+	border-color: #BD8C00;
+	margin: 2px;
+	border-style: solid;
+	
+}
+
+/*estilo de la columna de contenido*/
+#seccion{
+	display: inline-block;
+	background: white;
+	background: -moz-linear-gradient(top, white, #BD8C00) ;
+	background: -webkit-linear-gradient(top, white, #BD8C00) ;
+	background: -ms-linear-gradient(top, white, #BD8C00) ;
+	background: linear-gradient(top, white, #BD8C00) ;
+	width: 57%;
+	border-radius: 3px;
+	border-color: #BD8C00;
+	margin: 2px;
+	border-style: solid;
+	float: left;
+	text-align: left; important!
+	
+}
+/*estilo del aside*/
+#aside{
+	display: inline-block;
+	background: -moz-linear-gradient(top, white, #BD8C00) ;
+	background: -webkit-linear-gradient(top, white, #BD8C00) ;
+	background: -ms-linear-gradient(top, white, #BD8C00) ;
+	background: linear-gradient(top, white, #BD8C00) ;
+	width: 20%;
+	border-radius: 3px;
+	border-color: #BD8C00;
+	margin: 2px;
+	border-style: solid;
+}
+/*Clases para las imágenes en el aside*/
+.slidershow{
+    height: 350px;
+    width: 100%;
+}
+.slidershow2{
+    height: 200px;
+    width: 250px;
+    margin: auto;
+}
+
+/*Estilo slider principal*/
+.galeria{
+    height:100%;
+    width:100%;
+}
+/*Estilo de las imágenes para los patrocinadores en tipo "clase"*/
+.patrocinadores{
+    height: 180px; 
+    width: 200px;
+}
+
+/*Intento de estilo para la marquesina*/
+.marquesina{
+    height: 150px; 
+    width: 150px; 
+}
+/*estilo del pie de pagina*/
+#footer{
+	width: 99%;
+	background: -moz-linear-gradient(top, white, #BD8C00) ;
+	background: -webkit-linear-gradient(top, white, #BD8C00) ;
+	background: -ms-linear-gradient(top, white, #BD8C00) ;
+	background: linear-gradient(top, white, #BD8C00) ;
+	border-radius: 3px;
+	display: inline-block;
+	border-color: #BD8C00;
+	margin: 2px;
+	border-style: solid;
+}
+/*estilos de la barra de nagegaciÃ³n (submenus)*/
+#menu li{
+    display: block;
+    list-style-type: none;
+    width: 100%;/*130px*/
+    margin-top: 1px;
+    margin-left: -24px;
+    font-size: 13px;				
+    }
+#menu li ul li{
+        margin: 1px;
+		margin-left: -5px;
+        display: block;
+
+        }
+.submenu{
+    display: block;
+    margin-left: 0%;
+    list-style-type: none;
+    text-decoration: none;
+}
+/* color de fondo para los menÃºs 				*/                        
+#menu li{
+    background: #BD8C00; /* Old browsers */
+    padding: 5px;
+}												
+					
+/*EdiciÃ³n de los links de la pÃ¡gina*/
+/*link sin visitar*/
+a{
+	text-decoration: none;
+}
+a:link{ 
+	color:#3B170B;
+}
+/*link visitado*/
+a:visited {
+	color:#0B2F3A;
+}
+/*mouse sobre link*/
+a:hover {
+	color:#CEF6E3;
+}
+/*link seleccionado*/
+a:active {
+	color:#FA8258;
+}
+/*Estilo imagenes*/
+#logounam{
+	height: 100px;
+}
+/*slide de patrocinaodres*/
+
+/*estilo de botones de registrotrabajos.html*/
+#boton{
+	height: 80px;
+	width: 470px;
+	border-radius: 10px;
+	border-color: #022248;
+	margin-top: 5px;
+	margin-left: 5px;
+	border-style: solid;
+	font-size: 20px;
+	color: #BD8C00;
+}
+#boton1{
+	height: 80px;
+	width: 470px;
+	border-radius: 10px;
+	border-color: #022248;
+	background: #022248;
+	margin-top: 5px;
+	margin-left: 5px;
+	border-style: solid;
+	font-size: 20px;
+	color: #BD8C00;
+}
+#boton_u{
+	height: 25px;
+	width: 110px;
+	border-radius: 5px;
+}
+
+table{			
+    text-align: center;
+    width: 100%;
+}
+/*estilo para las tablas del registro de trabajos tanto de ponencia, taller, cartel y curso*/
+.autores{
+	font-size: 12px; important!
+	text-align: left; important!
+}
+th{
+	font-size: 12px;
+	text-align: left;
+}
+.tarifa{
+	text-align: center ; important!
+}
+
+.cajatextoslider{
+	margin-left: 17px;
+	margin-right: 10px;
+	max-height: 650px;
+}
+
+.cajatextoscroll{
+	margin-left: 17px;
+	margin-right: 10px;
+	position: relative;
+	overflow-y: hidden;
+	max-height: 830px;
+	max-width: 590px;
+}
+.cajatexto{
+	margin-left: 17px;
+	margin-right: 10px;
+        max-height: 850px;        
+}
+
+/*poner en mayusculas los campos de registro*/
+#Rfc{
+	text-transform: uppercase;
+}
+#institucionlab{
+	text-transform: uppercase;
+}
+#Estado{
+	text-transform: uppercase;
+}
+#perfil{
+	color: #022248;
+}
+#id_ponente5{
+	text-transform: uppercase;
+}
+#id_ponente1{
+	text-transform: uppercase;
+}
+#id_ponente2{
+	text-transform: uppercase;
+}
+#id_ponente3{
+	text-transform: uppercase;
+}
+#id_ponente4{
+	text-transform: uppercase;
+}
+#id_ponente{
+	text-transform: uppercase;
+}
+
+/*Codigo de prueba para hacer mas bonitos los contenidos*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+.ac-container{
+	width: 500px;
+	margin: 10px auto 30px auto;
+	text-align: justify;
+}
+.ac-container label{
+	padding: 5px 20px;
+	position: relative;
+	z-index: 20;
+	display: block;
+	height: 30px;
+	cursor: pointer;
+	color: #777;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	line-height: 33px;
+	font-size: 19px;
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
+	background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	background: -o-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container label:hover{
+	background: #fff;
+}
+.ac-container input:checked + label,
+.ac-container input:checked + label:hover{
+	background: #E5D651;
+	color: #3d7489;
+	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container label:hover:after,
+.ac-container input:checked + label:hover:after{
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: 13px;
+	top: 7px;
+	background: transparent url(../images/arrow_down.png) no-repeat center center;	
+}
+.ac-container input:checked + label:hover:after{
+	background-image: url(../images/arrow_up.png);
+}
+.ac-container input{
+	display: none;
+}
+.ac-container article{
+	background: rgba(255, 255, 255, 0.5);
+	margin-top: -1px;
+	overflow: hidden;
+	height: 0px;
+	position: relative;
+	z-index: 10;
+	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+}
+.ac-container article p{
+	font-style: italic;
+	color: #777;
+	line-height: 23px;
+	font-size: 18px;
+	padding: 20px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+.ac-container input:checked ~ article{
+	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
+}
+.ac-container input:checked ~ article.ac-small{
+	height: 600px;
+}
+.ac-container input:checked ~ article.ac-medium{
+	height: 300px;
+}
+.ac-container input:checked ~ article.ac-large{
+	height: 200px;
+}
+
+/*estilo de prueba para hacer mas bonito el scoll*/
+/*///////////////////////////////////////////////
+/////////////////////////////////////////////////*/
+.ps-container .ps-scrollbar-x-rail {
+    position: absolute; /* please don't change 'position' */
+    bottom: 3px; /* there must be 'bottom' for ps-scrollbar-x-rail */
+    height: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -o-transition: background-color .2s linear, opacity .2s linear;
+    -webkit-transition: background-color.2s linear, opacity .2s linear;
+    -moz-transition: background-color .2s linear, opacity .2s linear;
+    transition: background-color .2s linear, opacity .2s linear;
+}
+
+.ps-container:hover .ps-scrollbar-x-rail,
+.ps-container.hover .ps-scrollbar-x-rail {
+    opacity: 0.6;
+    filter: alpha(opacity = 60);
+}
+
+.ps-container .ps-scrollbar-x-rail:hover,
+.ps-container .ps-scrollbar-x-rail.hover {
+    background-color: #eee;
+    opacity: 0.9;
+    filter: alpha(opacity = 90);
+}
+
+.ps-container .ps-scrollbar-x-rail.in-scrolling {
+    opacity: 0.9;
+    filter: alpha(opacity = 90);
+}
+
+.ps-container .ps-scrollbar-y-rail {
+    position: absolute; /* please don't change 'position' */
+    right: 0px; /* there must be 'right' for ps-scrollbar-y-rail */
+    width: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -o-transition: background-color .2s linear, opacity .2s linear;
+    -webkit-transition: background-color.2s linear, opacity .2s linear;
+    -moz-transition: background-color .2s linear, opacity .2s linear;
+    transition: background-color .2s linear, opacity .2s linear;
+}
+
+.ps-container:hover .ps-scrollbar-y-rail,
+.ps-container.hover .ps-scrollbar-y-rail {
+    opacity: 0.6;
+    filter: alpha(opacity = 60);
+}
+
+.ps-container .ps-scrollbar-y-rail:hover,
+.ps-container .ps-scrollbar-y-rail.hover {
+    background-color: #eee;
+    opacity: 0.9;
+    filter: alpha(opacity = 90);
+}
+
+.ps-container .ps-scrollbar-y-rail.in-scrolling {
+    opacity: 0.9;
+    filter: alpha(opacity = 90);
+}
+
+.ps-container .ps-scrollbar-x {
+    position: absolute; /* please don't change 'position' */
+    bottom: 0; /* there must be 'bottom' for ps-scrollbar-x */
+    height: 8px;
+    background-color: #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -o-transition: background-color .2s linear;
+    -webkit-transition: background-color.2s linear;
+    -moz-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.ps-container.ie6 .ps-scrollbar-x {
+    font-size: 0; /* fixed scrollbar height in xp sp3 ie6 */
+}
+
+.ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,
+.ps-container .ps-scrollbar-x-rail.hover .ps-scrollbar-x {
+    background-color: #999;
+}
+
+.ps-container .ps-scrollbar-y {
+    position: absolute; /* please don't change 'position' */
+    right: 0px; /* there must be 'right' for ps-scrollbar-y */
+    width: 8px;
+    background-color: #000000 ;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -o-transition: background-color .2s linear;
+    -webkit-transition: background-color.2s linear;
+    -moz-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.ps-container.ie .ps-scrollbar-y {
+    font-size: 0; /* fixed scrollbar height in xp sp3 ie6 */
+}
+
+.ps-container .ps-scrollbar-y-rail:hover .ps-scrollbar-y,
+.ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
+    background-color: #000000;
+}
