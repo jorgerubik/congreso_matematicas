@@ -480,7 +480,7 @@ require('script/conexion.php');
 		
 		<input type="submit" name="enviar" value="enviar"  id="registro">
 </form>
-<form action="registro_trabajos" method="post">
+<form action="registro_trabajos.php" method="post">
 		<input type="submit" name="Cancelar" value="Cancelar">
 	</form>
 	</div>
