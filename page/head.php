@@ -415,59 +415,40 @@
  		 		document.getElementById("registro3").style.display="none";
  		 		document.getElementById("registro4").style.display="none";
  		 	};
- 		 	// if (document.getElementById("titulo")) {
- 		 	// 	document.getElementById("titulo").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("autores")) {
- 		 	// 	document.getElementById("autores").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("autores1")) {
- 		 	// 	document.getElementById("autores1").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("autores2")) {
- 		 	// 	document.getElementById("autores2").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("autores3")) {
- 		 	// 	document.getElementById("autores3").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("autores4")) {
- 		 	// 	document.getElementById("autores4").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("contenido")) {
- 		 	// 	document.getElementById("contenido").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("materiales")) {
- 		 	// 	document.getElementById("materiales").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("categoria")) {
- 		 	// 	document.getElementById("categoria").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("modalidad")) {
- 		 	// 	document.getElementById("modalidad").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("resumen")) {
- 		 	// 	document.getElementById("resumen").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("referencias")) {
- 		 	// 	document.getElementById("referencias").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("constancia")) {
- 		 	// 	document.getElementById("constancia").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("constancia1")) {
- 		 	// 	document.getElementById("constancia1").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("constancia2")) {
- 		 	// 	document.getElementById("constancia2").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("constancia3")) {
- 		 	// 	document.getElementById("constancia3").style.display="block";
- 		 	// };
- 		 	// if (document.getElementById("constancia4")) {
- 		 	// 	document.getElementById("constancia4").style.display="block";
- 		 	// };
- 		 }
+ 		 	
+ 		 };
 
+ 		 function EliminarCoautor1(){
+ 		 	if (document.getElementById("id_ponente2")) {
+ 		 		document.getElementById("id_ponente2").value="";
+ 		 		document.getElementById("requiere1").checked=false;
+ 		 		document.getElementById("requiere1a").checked=false;
+
+ 		 	};
+ 		}
+ 		function EliminarCoautor2(){
+ 		 	if (document.getElementById("id_ponente3")) {
+ 		 		document.getElementById("id_ponente3").value="";
+ 		 		document.getElementById("requiere2").checked=false;
+ 		 		document.getElementById("requiere2a").checked=false;
+ 		 	};
+ 			
+ 		} 	
+ 		function EliminarCoautor3(){
+ 		 	if (document.getElementById("id_ponente4")) {
+ 		 		document.getElementById("id_ponente4").value="";
+ 		 		document.getElementById("requiere3").checked=false;
+ 		 		document.getElementById("requiere3a").checked=false;
+ 		 	};
+ 			
+ 		}
+ 		function EliminarCoautor4(){
+ 			if (document.getElementById("id_ponente5")) {
+ 				document.getElementById("id_ponente5").value="";
+ 				document.getElementById("requiere4").checked=false;
+ 				document.getElementById("requiere4a").checked=false;
+ 			};
+ 		} 
 
  </script>
 	

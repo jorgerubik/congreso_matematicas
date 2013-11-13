@@ -119,7 +119,7 @@ require('script/conexion.php');
 						echo " ";
 						
 					}
-					echo "<form action = 'actualización_cartel.php' method='post'><fieldset>";
+					echo "<form action = 'actualizacion_cartel.php' method='post'><fieldset>";
 					echo "<legend>Confirmación de datos</legend>";
 					echo "<legend>AUTORES:</legend> ";
 					echo "<table border='1'> <tbody>";

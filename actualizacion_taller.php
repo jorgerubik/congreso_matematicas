@@ -120,6 +120,7 @@ require('script/conexion.php');
 				//insertando los datos
 				$query = "UPDATE ponencias_taller SET RFC = '$rfc_autor', titulo_taller = '$titulo', resumen_taller = '$contenido', material_taller = '$materiales' WHERE id_ponencia_taller = '$id_trabajo' ";
 				exe_query($query);
+				//si coautor1 existe lo actualiza
 				$query = "UPDATE autores SET RFC = '$rfc_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_trabajo' AND RFC = '$rfc'";
 				exe_query($query);
 				if($coautor1 != "" && $rfc_coautor1 != ""){
@@ -129,6 +130,11 @@ require('script/conexion.php');
 				//si coautor1 no existe lo registra, no lo actualiza
 				if ($rfc_coautor1 != "" && $coautor1 == "") {
 					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T07' , '$id_trabajo', '$requiere1', $fecha)";
+					exe_query($query);
+				}
+				//si elimino coautor1
+				if ($rfc_coautor1 == "" && $coautor1 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor1'";
 					exe_query($query);
 				}
 
@@ -142,7 +148,11 @@ require('script/conexion.php');
 					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T07' , '$id_trabajo', '$requiere2' $fecha)";
 					exe_query($query);
 				}
-							
+				//si elimino coautor2
+				if ($rfc_coautor2 == "" && $coautor2 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor2'";
+					exe_query($query);
+				}		
 
 					
 		echo "Se ha introducido satisfactoriamente el cambio <br>";

@@ -350,7 +350,7 @@ require('script/conexion.php');
 							 echo "<textarea row='6' cols='50' id='Contenido_area2' name='Referencias' onblur='wordCountb();'>".$row['referencias_oral']."</textarea> ";
 							 echo "</fieldset><fieldset>";
 							 echo "<legend>Autores:</legend>";
-							 echo "<table border='1' id='autores'><tr><th>Autor</th><th>RFC</th><th>Requiere constancia</th></r> ";
+							 echo "<table border='1' id='autores'><tr><th>Autor</th><th>RFC</th><th>Requiere constancia</th><th>Eliminar</th></tr> ";
 							 echo "<tr><th>Autor</th>";
 							 echo "<td><input type='text' id='id_ponente1' name='Rfc_autor' maxlenght='10' value='".$rfc."' required></td>";
 							 $query_requiere = "SELECT constancia FROM autores WHERE RFC = '".$rfc."'"." AND id_trabajo = '".$id_trabajo."'";
@@ -363,9 +363,10 @@ require('script/conexion.php');
   							 }
   							 if ($requiere == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='".$requiere."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere' value='SI'>Si <input type='radio' name='requiere' id='requiere' value='".$requiere."' checked>NO </td>";
 
   							 }
+  							 echo "</tr>";
   							 //coautor1
   							 $query_co1 = "SELECT RFC FROM autores WHERE id_trabajo = '".$id_trabajo."'"."AND tipo_autor = 'coautor1'";
   							 $result_co1=exe_query($query_co1);
@@ -396,18 +397,21 @@ require('script/conexion.php');
   							 $requiere1 = $row_requiere1[0];
   							 if ($requiere1 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1a' id='requiere1' value='NO'>NO </td>";
   							 }
   							 if ($requiere1 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='".$requiere1."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere1a' value='".$requiere1."' checked>NO </td>";
 
   							 }
   							 if ($requiere1 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere1a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor1();'></td></tr>";
+  							 
+
   							 echo "<tr> <th>Coautor 2</th>";
   							 echo "<td><input type='text' id='id_ponente3' name='Rfc_coautor2' value='".$rco2."'></td> ";
   							 $query_requiere2 = "SELECT constancia FROM autores WHERE RFC = '".$rco2."'"." AND id_trabajo = '".$id_trabajo."'";
@@ -416,18 +420,22 @@ require('script/conexion.php');
   							 $requiere2 = $row_requiere2[0];
   							 if ($requiere2 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere2a' value='NO'>NO </td>";
   							 }
   							 if ($requiere2 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere' value='".$requiere2."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere2a' value='".$requiere2."' checked>NO </td>";
 
   							 }
   							 if ($requiere2 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere2a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor2();'></td></tr>";
+
+
+
   							 echo "<tr> <th>Coautor 3</th>";
   							 echo "<td><input type='text' id='id_ponente4' name='Rfc_coautor3' value='".$rco3."'></td> ";
   							 $query_requiere3 = "SELECT constancia FROM autores WHERE RFC = '".$rco3."'"." AND id_trabajo = '".$id_trabajo."'";
@@ -436,18 +444,21 @@ require('script/conexion.php');
   							 $requiere3 = $row_requiere3[0];
   							 if ($requiere3 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere3' value='".$requiere3."' checked>Si <input type='radio' name='requiere3' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere3' id='requiere3' value='".$requiere3."' checked>Si <input type='radio' name='requiere3a' id='requiere' value='NO'>NO </td>";
   							 }
   							 if ($requiere3 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere3' value='SI'>Si <input type='radio' name='requiere3' id='requiere' value='".$requiere3."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere3' id='requiere3' value='SI'>Si <input type='radio' name='requiere3' id='requiere3a' value='".$requiere3."' checked>NO </td>";
 
   							 }
   							 if ($requiere3 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere3' value='SI'>Si <input type='radio' name='requiere3' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere3' id='requiere3' value='SI'>Si <input type='radio' name='requiere3' id='requiere3a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor3();'></td></tr>";
+
+
   							 echo "<tr> <th>Coautor 4</th>";
   							 echo "<td><input type='text' id='id_ponente5' name='Rfc_coautor4' value='".$rco4."'></td> ";
   							 $query_requiere4 = "SELECT constancia FROM autores WHERE RFC = '".$rco4."'"." AND id_trabajo = '".$id_trabajo."'";
@@ -456,18 +467,21 @@ require('script/conexion.php');
   							 $requiere4 = $row_requiere4[0];
   							 if ($requiere4 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere4' value='".$requiere4."' checked>Si <input type='radio' name='requiere4' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere4' id='requiere4' value='".$requiere4."' checked>Si <input type='radio' name='requiere4' id='requiere4' value='NO'>NO </td>";
   							 }
   							 if ($requiere4 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere4' value='SI'>Si <input type='radio' name='requiere4' ' id='requiere' value='".$requiere4."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere4' id='requiere4' value='SI'>Si <input type='radio' name='requiere4' ' id='requiere4' value='".$requiere4."' checked>NO </td>";
 
   							 }
   							 if ($requiere4 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere4' value='SI'>Si <input type='radio' name='requiere3' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere4' id='requiere4' value='SI'>Si <input type='radio' name='requiere3' id='requiere4' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor4();'></td></tr>";
+
+
 							 echo "</table></fieldset>";
 					}		 
 					echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>  <br>";

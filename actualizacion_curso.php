@@ -123,6 +123,7 @@ require('script/conexion.php');
 				exe_query($query);
 				$query = "UPDATE autores SET RFC = '$rfc_autor', tipo_autor = 'autor', constancia = '$requiere' WHERE id_trabajo = '$id_trabajo' AND RFC = '$rfc'";
 				exe_query($query);
+				//si coautor1 existe lo actualiza
 				if($coautor1 != "" && $rfc_coautor1 != ""){
 					$query = "UPDATE autores SET RFC = '$rfc_coautor1', tipo_autor = 'coautor1', constancia = '$requiere1' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor1'";
 					exe_query($query);
@@ -132,7 +133,11 @@ require('script/conexion.php');
 					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T09' , '$id_trabajo', '$requiere1','$fecha')";
 					exe_query($query);
 				}
-
+				//si elimino coautor1
+				if ($rfc_coautor1 == "" && $coautor1 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor1'";
+					exe_query($query);
+				}
 				//si coautor 2 existe lo actualiza
 				if ($coautor2 != "" && $rfc_coautor2 != "") {
 					$query = "UPDATE autores SET RFC = '$rfc_coautor2', tipo_autor = 'coautor2', constancia = '$requiere2' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor2'";
@@ -143,7 +148,11 @@ require('script/conexion.php');
 					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T09' , '$id_trabajo', '$requiere2','$fecha')";
 					exe_query($query);
 				}
-							
+				//si elimino coautor2
+				if ($rfc_coautor2 == "" && $coautor2 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor2'";
+					exe_query($query);
+				}			
 
 					
 		echo "Se ha introducido satisfactoriamente el cambio <br>";

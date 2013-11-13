@@ -113,7 +113,7 @@ require('script/conexion.php');
 					//empezamos a vacíar los datos de la BD en los campos de texto
 					while ($row = mysql_fetch_assoc($r)){
 						
-						echo"<form action='editar_taller_confirmacion.php' method='post' autocomplete='off' class='forms' id='formulario";
+						echo"<form action='editar_taller_confirmacion.php' method='post' autocomplete='off' class='forms' id='formulario'";
 						echo"<fieldset id='ponencia'>";
 						echo"<legend>Formulario de registro</legend>";
 						echo"<legend>Título (máximo 15 palabras):</legend>";
@@ -131,7 +131,7 @@ require('script/conexion.php');
 				//empieza a lenarse la tabla de autores con RFC y si querían constancia o no
 						echo"<legend>Autores</legend>";
 						echo"<table border='1' id='autores'>";
-						echo"<tr><th>Autor</th><th>RFC</th><th>Requiere constancia</th></tr>";
+						echo"<tr><th>Autor</th><th>RFC</th><th>Requiere constancia</th><th>Eliminar</th></tr>";
 						echo"<tr><th>Autor</th>";
 						echo"<td><input type='text' id='id_ponente1' name='Rfc_autor' value='".$rfc."' maxlenght='10' required></td>";
 				//querys para saber si requería constancia o no el autor
@@ -167,18 +167,21 @@ require('script/conexion.php');
   							 $requiere1 = $row_requiere1[0];
   							 if ($requiere1 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1' id='requiere1a' value='NO'>NO </td>";
   							 }
   							 if ($requiere1 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='".$requiere1."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere1a' value='".$requiere1."' checked>NO </td>";
 
   							 }
   							 if ($requiere1 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere1a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor1();'></td></tr>";
+
+
   						echo"</tr><tr><th>Coautor 2</th>";
 						echo"<td><input type='text' id='id_ponente3' value='".$rcol2."' name='Rfc_coautor2' maxlenght='10'></td>";
 						$query_requiere2 = "SELECT constancia FROM autores WHERE RFC = '".$rco2."'"." AND id_trabajo = '".$id_trabajo."'";
@@ -187,20 +190,23 @@ require('script/conexion.php');
   							 $requiere2 = $row_requiere2[0];
   							 if ($requiere2 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere2a' value='NO'>NO </td>";
   							 }
   							 if ($requiere2 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere' value='".$requiere2."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere2a' value='".$requiere2."' checked>NO </td>";
 
   							 }
   							 if ($requiere2 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere2a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor2();'></td></tr>";
+
+
 						echo"</tr></table></fieldset>";
-						echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'>";
+						echo"<input type='text' name='id_trabajo' value='".$id_trabajo."' style='visibility:hidden;'><br>";
 						
 
 							 

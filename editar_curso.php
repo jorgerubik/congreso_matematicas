@@ -123,7 +123,7 @@ require('script/conexion.php');
 						echo"<textarea rows='4' cols='50' required id='Contenido_area1' name='Materiales' onblur='wordCountb();' >".$row['material_curso']."</textarea>";
 						echo"</fieldset><fieldset><legend>Autores</legend><table border='1' id='autores'>";
 				//se comienza a llenar tabla de autores RFC y constancias		
-						echo"<tr><th>Autor</th><th>RFC</th><th>Requiere constancia</th></tr>";
+						echo"<tr><th>Autor</th><th>RFC</th><th>Requiere constancia</th><th>Eliminar</th></tr>";
 						echo"<tr><th>Autor</th>";
 						echo"<td><input type='text' id='id_ponente1' name='Rfc_autor' value='".$rfc."' maxlenght='10' required></td>";
 						//querys para saber si requería constancia o no el autor
@@ -159,18 +159,21 @@ require('script/conexion.php');
   							 $requiere1 = $row_requiere1[0];
   							 if ($requiere1 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='".$requiere1."' checked>Si <input type='radio' name='requiere1' id='requiere1a' value='NO'>NO </td>";
   							 }
   							 if ($requiere1 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='".$requiere1."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere1a' value='".$requiere1."' checked>NO </td>";
 
   							 }
   							 if ($requiere1 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere1' id='requiere1' value='SI'>Si <input type='radio' name='requiere1' id='requiere1a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor1();'></td></tr>";
+
+
   						echo"</tr><tr><th>Coautor 2</th>";
 						echo"<td><input type='text' id='id_ponente3' value='".$rcol2."' name='Rfc_coautor2' maxlenght='10'></td>";
 						$query_requiere2 = "SELECT constancia FROM autores WHERE RFC = '".$rco2."'"." AND id_trabajo = '".$id_trabajo."'";
@@ -179,18 +182,21 @@ require('script/conexion.php');
   							 $requiere2 = $row_requiere2[0];
   							 if ($requiere2 == 'SI') {
   							 	# code...
-							 	echo "<td><input type='radio' name='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
+							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='".$requiere2."' checked>Si <input type='radio' name='requiere2' id='requiere2a' value='NO'>NO </td>";
   							 }
   							 if ($requiere2 == 'NO') {
   							 	# code...
-  							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere' value='".$requiere2."' checked>NO </td></tr>";
+  							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='SI'>Si <input type='radio' name='requiere2'  id='requiere2a' value='".$requiere2."' checked>NO </td>";
 
   							 }
   							 if ($requiere2 == '') {
   							 	# code...
-   							 	echo "<td><input type='radio' name='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere' value='NO'>NO </td></tr>";
+   							 	echo "<td><input type='radio' name='requiere2' id='requiere2' value='SI'>Si <input type='radio' name='requiere2' id='requiere2a' value='NO'>NO </td>";
  							 	
   							 }
+  							 echo "<td><input type='button' value='Eliminar' onClick='EliminarCoautor2();'></td></tr>";
+
+
   						echo"</tr></table></fieldset>";
 						echo"<input type='text' name='id_trabajo' value='".$id_trabajo."'style='visibility:hidden;'><br>";
 					}		 

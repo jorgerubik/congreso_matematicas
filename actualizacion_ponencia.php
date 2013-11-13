@@ -147,6 +147,11 @@ require('script/conexion.php');
 					$query="INSERT INTO autores VALUES ('$rfc_coautor1', 'coautor1', 'T05' , '$id_trabajo', '$requiere1','$fecha')";
 					exe_query($query);
 				}
+				//si elimino coautor1
+				if ($rfc_coautor1 == "" && $coautor1 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor1'";
+					exe_query($query);
+				}
 
 				//si coautor 2 existe lo actualiza
 				if ($coautor2 != "" && $rfc_coautor2 != "") {
@@ -156,6 +161,11 @@ require('script/conexion.php');
 				//si coautor2 no existe lo registra, no lo actualiza
 				if ($rfc_coautor2 != "" && $coautor2 == "") {
 					$query="INSERT INTO autores VALUES ('$rfc_coautor2', 'coautor2', 'T05' , '$id_trabajo', '$requiere2','$fecha')";
+					exe_query($query);
+				}
+				//si elimino coautor2
+				if ($rfc_coautor2 == "" && $coautor2 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor2'";
 					exe_query($query);
 				}
 
@@ -169,18 +179,27 @@ require('script/conexion.php');
 					$query="INSERT INTO autores VALUES ('$rfc_coautor3', 'coautor3', 'T05' , '$id_trabajo', '$requiere3','$fecha')";
 					exe_query($query);
 				}
+				//si elimino coautor3
+				if ($rfc_coautor3 == "" && $coautor3 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor3'";
+					exe_query($query);
+				}
 
-				//si coautor3 existe actualiza datos
+				//si coautor4 existe actualiza datos
 				if ($coautor4 != "" && $rfc_coautor4 != "") {
 					$query = "UPDATE autores SET RFC = '$rfc_coautor4', tipo_autor = 'coautor4', constancia = '$requiere4' WHERE id_trabajo = '$id_trabajo' AND RFC = '$coautor4'";
 					exe_query($query);
 				}
-				//si cuautor3 no existe registra, no actualiza datos
+				//si cuautor4 no existe registra, no actualiza datos
 				if ($rfc_coautor4 != "" && $coautor4 == "") {
 					$query="INSERT INTO autores VALUES ('$rfc_coautor4', 'coautor4', 'T05' , '$id_trabajo', '$requiere4','$fecha')";
 					exe_query($query);
 				}
-							
+				//si elimino coautor4
+				if ($rfc_coautor4 == "" && $coautor4 != "") {
+					$query="DELETE FROM autores WHERE id_trabajo = '$id_trabajo' AND tipo_autor = 'coautor4'";
+					exe_query($query);
+				}			
 
 					
 		echo "Se ha introducido satisfactoriamente el cambio <br>";
