@@ -51,7 +51,7 @@ exit;
 		<section id="seccion" class="formatocentro">
 
 <?
-	$usuario = $_POST['usuario'];
+	$rfc = $_POST['Rfc'];
 	
 	
 //conexión con servidor
@@ -73,21 +73,21 @@ exit;
 				}
 		////////////////////////// FUNCIÓN PARA EJECUTAR QUERY
 
-				function exe_query($query){
+				// function exe_query($query){
 					
-					$r = mysql_query($query);
-					if (!$r) {
-						echo "No se ejecutó el query: $query <br>";
-						trigger_error(mysql_error(), E_USER_ERROR);
-					}
-					return $r;
+				// 	$r = mysql_query($query);
+				// 	if (!$r) {
+				// 		echo "No se ejecutó el query: $query <br>";
+				// 		trigger_error(mysql_error(), E_USER_ERROR);
+				// 	}
+				// 	return $r;
 					
-				}
+				// }
 
 				
 				//////****Imprime una tabla de la BD****//////		
 				//imprimo id usuario y rol que tiene
-					$query = "SELECT id_usuario, id_rol FROM usuario_rol WHERE id_usuario = '".$usuario."'";
+					$query = "SELECT id_usuario, RFC, nombre_usuario, apellido_paterno, apellido_materno FROM usuarios WHERE RFC = '".$rfc."';";
 					$r = mysql_query($query);
 					if(!$r){
 						echo "No se pudo ejecutar el query: $query";
@@ -95,67 +95,65 @@ exit;
 						trigger_error(mysql_error(), E_USER_ERROR);
 					}
 					else{
-						echo " ";
-						echo "<br>";
-					}
-					echo "<br>";
-					echo "<h3>USUARIO: </h3>";
-					echo "<table border='1'> <tbody>";
-					echo "<tr>"."<td>"."Id_usuario"."</td><td> "."Nivel de Rol"."</td></tr>";
+						if (mysql_num_rows($r)==1){
+							$row = mysql_fetch_assoc($r);
 
-					while ($row = mysql_fetch_assoc($r)){
-						
-						echo "<tr>"."<td>".$row['id_usuario']."</td><td> ".$row['id_rol']."</td></tr>";
+							$query_evaluador = "SELECT COUNT(*) FROM usuario_rol WHERE id_usuario = '".$row['id_usuario']."' AND id_rol = 3;";
+							$r_evaluador = mysql_query($query_evaluador);
 
-					}
-					echo "</tbody> </table>";	
-			
+							if(!$r_evaluador){
+								echo "No se pudo ejecutar el query: $query_evaluador";
+								echo "<br>";
+								trigger_error(mysql_error(), E_USER_ERROR);
+							}
+							else{
+								$row_evaluador = mysql_fetch_assoc($r_evaluador);
+								if ($row_evaluador['COUNT(*)']>0){
+									echo "<br><br>El usuario con el RFC que introdujo ya es evaluador.<br>";
+									echo "<br><form method='post' action='asignar_evaluadores.php'>
+										<input type='submit' name='regresar' value='Regresar'>
+										</form>";
+								}
+								else if ($row_evaluador['COUNT(*)']==0){
+									echo "<br>";
+									echo "<br>";
+									echo "<h3>Verifique los datos del usuario: </h3>";
+									echo "<table border='1'> <tbody>";
+									echo "<tr>"."<td>"."RFC usuario"."</td><td> "."Nombre"."</td></tr>";
+									echo "<tr>"."<td>".$row['RFC']."</td><td> ".$row['nombre_usuario']." ".$row['apellido_paterno']." ".$row['apellido_materno']."</td></tr>";
+									echo "</tbody> </table>";
+
+									echo "<form method='post' action='asignar_modalidad.php'>";
+									echo "<input type='text' id='id_usuario' name='id_usuario' style='visibility:hidden;' value='".$row['id_usuario']."' >";
+									echo "<br>";
+									echo "<script>
+									function back(){
+										window.location.href = 'asignar_evaluadores.php'
+									}</script>";
+									echo "<input type='button' name='regresar' value='Regresar' onClick='back()'>";
+									echo "<input type='submit' name='enviar' value='Siguiente'>";
+
+									echo "</form>";
+								}
+							}
+							
+						}
+
+						else if (mysql_num_rows($r)==0){
+							echo "<br><br>";
+							echo "El usuario con el RFC que introdujo no se encuentra registrado en la base de datos.<br>";
+							echo "<br><form method='post' action='asignar_evaluadores.php'>
+										<input type='submit' name='regresar' value='Regresar'>
+										</form>";
+						}
+					}	
 	
 	mysql_close();
 ?>
-<br>
-<table border="1">
-	<tbody>
-		<tr>
-			<td>Tipo de acceso</td>
-			<td>Número de asignación de acceso</td>
-		</tr>
-		<tr>
-			<td>Usuario</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Revisor</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>Evaluador</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<td>Revisor y Evaluador</td>
-			<td>3</td>
-		</tr>
-		<tr>
-			<td>Asignar Roles</td>
-			<td>4</td>
-		</tr>
-		<tr>
-			<td>Revisor y Asignar Roles</td>
-			<td>5</td>
-		</tr>
-		<tr>
-			<td>Evaluador y Asignar Roles</td>
-			<td>6</td>
-		</tr>
-		<tr>
-			<td>Administrador</td>
-			<td>7</td>
-		</tr>
-	</tbody>
-</table>
-
-</section>		
+<!-- <form method='post' action='asignar_evaluadores.php'>
+	<input type="submit" name="regresar" value="Regresar">
+</form>
+ --></section>		
 		
 		<!-- aside de la página -->
 		<section id="aside">

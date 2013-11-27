@@ -130,7 +130,7 @@ $usuario_consulta2 = mysql_query("SELECT id_rol FROM usuario_rol WHERE id_usuari
     Header ("Location: $pag?");
     exit;
     
-   } else {
+   } else if (mysql_num_rows($usuario_consulta) == 0){
       // si no esta el nombre de usuario en la BD o el password ..
       // se devuelve a pagina q lo llamo con error
       echo"<script>alert('Usuario incorrecto');";

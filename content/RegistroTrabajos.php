@@ -39,8 +39,8 @@
 		<fieldset>
 			<legend>Administrativo</legend>
 			<?if ((4 == $_SESSION['usuario_nivel'])|| (5 == $_SESSION['usuario_nivel']) || (6 == $_SESSION['usuario_nivel']) || (7 == $_SESSION['usuario_nivel'])){ ?>
-				<FORM action="asignar_roles.php" method="post" class="form">
-					<button type="submit" name="Admistrador" id="boton1">Asignación de roles</button>
+				<FORM action="asignar_evaluadores.php" method="post" class="form">
+					<button type="submit" name="Admistrador" id="boton1">Asignación de evaluadores</button>
 					<br>
 				</FORM>
 			<? } ?>
