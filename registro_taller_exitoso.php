@@ -125,7 +125,7 @@ else{
 }
 
 if($numero_ponencia <= 9){
-	$query="INSERT INTO ponencias_taller VALUES ('".$taller."00".$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.", '$fecha')";
+	$query="INSERT INTO ponencias_taller VALUES ('".$taller."00".$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', NULL, NULL, '$materiales', NULL, NULL, NULL, NULL, NULL,".$numero_ponencia.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$taller."00".$numero_ponencia."', '$requiere', '$fecha')";
 	exe_query($query);
@@ -142,7 +142,7 @@ if($numero_ponencia <= 9){
 	$result1=exe_query($query);
 }
 else if($numero_ponencia <= 99 && $numero_ponencia > 9){
-	$query="INSERT INTO ponencias_taller VALUES ('".$taller."0".$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.", '$fecha')";
+	$query="INSERT INTO ponencias_taller VALUES ('".$taller."0".$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', NULL, NULL, '$materiales', NULL, NULL, NULL, NULL, NULL,".$numero_ponencia.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$taller."0".$numero_ponencia."', '$requiere', '$fecha')";
 	exe_query($query);
@@ -159,7 +159,7 @@ else if($numero_ponencia <= 99 && $numero_ponencia > 9){
 	$result1=exe_query($query);
 }
 else if($numero_ponencia > 99){
-	$query="INSERT INTO ponencias_taller VALUES ('".$taller.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', ' ', ' ', '$materiales', ' ', ' ', ' ', ' ', ' ',".$numero_ponencia.", '$fecha')";
+	$query="INSERT INTO ponencias_taller VALUES ('".$taller.$numero_ponencia."', '$rfc_autor', '$titulo', '$contenido', NULL, NULL, '$materiales', NULL, NULL, NULL, NULL, NULL,".$numero_ponencia.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T07', '".$taller.$numero_ponencia."', '$requiere', '$fecha')";
 	exe_query($query);

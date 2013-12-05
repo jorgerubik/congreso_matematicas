@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "0515delux!";
+$pass = "gatesofreason";
 $db = "congresomat";
 
 ?>

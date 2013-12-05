@@ -39,17 +39,19 @@
 		<fieldset>
 			<legend>Administrativo</legend>
 			<?if ((4 == $_SESSION['usuario_nivel'])|| (5 == $_SESSION['usuario_nivel']) || (6 == $_SESSION['usuario_nivel']) || (7 == $_SESSION['usuario_nivel'])){ ?>
-				<FORM action="asignar_evaluadores.php" method="post" class="form">
+				<FORM action="opcion_evaluadores.php" method="post" class="form">
 					<button type="submit" name="Admistrador" id="boton1">Asignación de evaluadores</button>
 					<br>
 				</FORM>
-			<? } ?>
-			<?if ( (1== $_SESSION['usuario_nivel']) || (3 == $_SESSION['usuario_nivel']) || (5 == $_SESSION['usuario_nivel']) || (7 == $_SESSION['usuario_nivel'])){ ?>
-			<button type="submit" name="Comiterevisor" id="boton1">Comite revisor</button>
-			<br>
+				<FORM action="revision_trabajos_todos.php" method="post" class="form">
+					<button type="submit" name="Admistrador" id="boton1">Revisión de trabajos</button>
+					<br>
+				</FORM>
 			<? } ?>
 			<?if ((3 == $_SESSION['usuario_nivel']) || (7 == $_SESSION['usuario_nivel']) || (2 == $_SESSION['usuario_nivel']) || (6 == $_SESSION['usuario_nivel'])){ ?>
-			<button type="submit" name="comitevaluador" id="boton1">Comite evaluador</button>
+			<form action="menu_evaluadores.php" method="post" class="form">
+				<button type="submit" name="comitevaluador" id="boton1">Evaluación de trabajos</button>
+			</form>
 			<!-- <button type="submit" name="comitevaluador" id="boton">Asignación de fechas</button>
 			<button type="submit" name="comitevaluador" id="boton">Usuarios</button>
 			<button type="submit" name="comitevaluador" id="boton">Informes</button> -->

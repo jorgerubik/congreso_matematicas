@@ -508,3 +508,12 @@ th{
 .ps-container .ps-scrollbar-y-rail.hover .ps-scrollbar-y {
     background-color: #000000;
 }
+.boton_evaluador{
+	height:50px;
+	width:200px;
+	border-radius: 10px;
+	background-color: #022248;
+	color: #BD8C00;
+	font-size: 15px;
+	font-weight: bold; 
+}

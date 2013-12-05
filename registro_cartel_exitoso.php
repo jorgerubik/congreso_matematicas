@@ -129,7 +129,7 @@ else{
 }
 
 if($numero_ponencia <= 9){
-	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad."00".$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.", '$fecha')";
+	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad."00".$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad."00".$numero_ponencia."', '$requiere', '$fecha')";
 	exe_query($query);
@@ -154,7 +154,7 @@ if($numero_ponencia <= 9){
 	$result1=exe_query($query);
 }
 else if($numero_ponencia <= 99 && $numero_ponencia > 9){
-	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad."0".$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.", '$fecha')";
+	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad."0".$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad."0".$numero_ponencia."', '$requiere', '$fecha')";
 	exe_query($query);
@@ -179,7 +179,7 @@ else if($numero_ponencia <= 99 && $numero_ponencia > 9){
 	$result1=exe_query($query);
 }
 else if($numero_ponencia > 99){
-	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.", '$fecha')";
+	$query="INSERT INTO ponencias_cartel VALUES ('".$cartel.$modalidad.$numero_ponencia."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL, NULL, NULL, ".$numero_ponencia.", '$fecha'), NULL, NULL";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T06', '".$cartel.$modalidad.$numero_ponencia."', '$requiere', '$fecha')";
 	exe_query($query);

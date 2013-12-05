@@ -1,4 +1,15 @@
 <?
+
+				// $hInicio = 15;   // Está en 24 hrs
+			 //  	$hFin = 21;
+			  	// $fecha = date('Y-m-j-G-i-s');
+			  	// echo $fecha;
+				$hInicio = 	"2013-11-28-21-50-46";
+				$hFin = "2013-11-29-23-59-59";
+			   	$h = date("Y-m-j-G-i-s");  // Hora actual en 24 hr
+			   	if ($h >= $hInicio && $h >= $hFin) {
+			   		header("location: bloqueo.php");
+			   	}
 //  Autentificator
 //  Gestión de Usuarios PHP+Mysql+sesiones
 //  by Pedro Noves V. (Cluster)
@@ -50,7 +61,10 @@ exit;
 		<!--sección de contenido -->
 		<section id="seccion" class="formatocentro">
 			<?php
-				include "content/RegistroTrabajos.php";
+				
+					include "content/RegistroTrabajos.php";
+			   		
+			   	
 			?>
 		</section>		
 		

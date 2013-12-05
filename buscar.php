@@ -98,7 +98,7 @@ exit;
 						if (mysql_num_rows($r)==1){
 							$row = mysql_fetch_assoc($r);
 
-							$query_evaluador = "SELECT COUNT(*) FROM usuario_rol WHERE id_usuario = '".$row['id_usuario']."' AND id_rol = 3;";
+							$query_evaluador = "SELECT COUNT(*) FROM usuario_rol WHERE id_usuario = '".$row['id_usuario']."' AND id_rol > 2;";
 							$r_evaluador = mysql_query($query_evaluador);
 
 							if(!$r_evaluador){

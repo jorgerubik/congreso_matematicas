@@ -5,7 +5,8 @@
 			<legend>Información personal:</legend>
 			<input type="submit" value="editar">
 		</form>
-		<form action="editar_trabajos.php" method="post">
+		<!-- <form action="editar_trabajos.php" method="post"> -->
+		<form action="registro_trabajos.php" method="post">
 			<legend>Trabajos registrados:</legend>
 			<input type="submit" value="editar">
 		</form>

@@ -32,7 +32,7 @@
 	<fieldset>	
 		<legend>Introduzca el RFC del usuario que desea asignar como evaluador:</legend>
 		<legend>RFC:</legend>
-		<input type="text" id="Rfc" name="Rfc" maxlength="13" size="13"><br>
+		<input type="text" id="Rfc" name="Rfc" maxlength="13" size="13" required><br>
 		<input type="submit" id="enviar" name="enviar" value="Enviar">
 	</fieldset>
 </form>

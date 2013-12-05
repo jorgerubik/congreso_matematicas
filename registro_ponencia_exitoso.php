@@ -114,7 +114,7 @@ else{
 }
 
 if($numero_ponencia_modalidad <= 9){
-	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.", '$fecha')";
+	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad."00".$numero_ponencia_modalidad."', '$requiere', '$fecha')";
 	exe_query($query);
@@ -139,7 +139,7 @@ if($numero_ponencia_modalidad <= 9){
 	$result1=exe_query($query);
 }
 else if($numero_ponencia_modalidad <= 99 && $numero_ponencia_modalidad > 9){
-	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.", '$fecha')";
+	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad."0".$numero_ponencia_modalidad."', '$requiere', '$fecha')";
 	exe_query($query);
@@ -164,7 +164,7 @@ else if($numero_ponencia_modalidad <= 99 && $numero_ponencia_modalidad > 9){
 	$result1=exe_query($query);
 }
 else if($numero_ponencia_modalidad > 99){
-	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.", '$fecha')";
+	$query="INSERT INTO ponencias_oral VALUES ('".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$rfc_autor', '$categoria', '$modalidad', '$titulo', '$resumen', '$referencias', NULL, NULL, NULL,".$numero_ponencia_modalidad.", '$fecha', NULL, NULL)";
 	exe_query($query);
 	$query="INSERT INTO autores VALUES ('$rfc_autor', 'autor', 'T05', '".$ponencia_oral.$modalidad.$numero_ponencia_modalidad."', '$requiere', '$fecha')";
 	exe_query($query);
