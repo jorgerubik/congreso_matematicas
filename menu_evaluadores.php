@@ -50,8 +50,8 @@ exit;
 		<!--sección de contenido -->
 		<section id="seccion" class="formatocentro">
 			<?php
-				// include "content/Menu_evaluadores.php";
-				echo "Éste módulo aún no está disponible";
+				 include "content/Menu_evaluadores.php";
+				//echo "Éste módulo aún no está disponible";
 			?>
 		</section>		
 		
