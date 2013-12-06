@@ -1,101 +1,55 @@
-<?php 
+<?
+class mysql {
 
-  //////////////////////////////////////////////////
-  ///Funcion para conectar una base de datos
-  //////////////////////////////////////////////////
-  function conectar_db()
-  { 
-    $pServer=mysql_connect(SERVER,USER,PASSWORD);
-    If (!$pServer)
-      echo("No se pudo conectar al servidor en este momento");
-      error("1");
-  }
-
-  //////////////////////////////////////////////////
-  ////Funcion para seleccionar una base de datos
-  //////////////////////////////////////////////////
-  function selecciona_db()
-  {
-    mysql_select_db(DATABASE);
-    error("2");
-  }
-
-  //////////////////////////////////////////////////
-  ////Funcion para ejectur consultas en Mysql
-  //////////////////////////////////////////////////
-  function consulta_tb($Sql){
-    global  $pConsulta; 
-    $pConsulta=mysql_query($Sql); 
-    error("3");
-    If (mysql_numrows($pConsulta)>0){
-      error("4");
-      return 1;
+    var $server = "localhost";
+    var $user = "root";
+    var $pass = '0515delux!';
+    var $data_base = "congresomat";
+    var $conexion;
+    var $flag = false;
+    var $error_conexion = "Error en la conexiÃ³n a MYSQL";
+    
+    function connect(){
+            $this->conexion = @mysql_connect($this->server,$this->user,$this->pass) or die($this->error_conexion);
+            $this->flag = true;
+            @mysql_query("SET NAMES utf8");
+            return $this->conexion;
     }
-    else{ 
-      error("4"); 
-      return 0;
+    
+    function close(){
+        if($this->flag == true){
+            @mysql_close($this->conexion);
+        }
     }
-  }
+    
+    function query($query){
+        return @mysql_db_query($this->data_base,$query);
+    }
+    
+    function f_obj($query){
+        return @mysql_fetch_object($query);
+    }
 
-  //////////////////////////////////////////////////
-  ///Funcion para cerrar una base de datos
-  //////////////////////////////////////////////////
-  function cerrar_db()
-  {
-    mysql_close();
-    error("4");
-  }
-  //////////////////////////////////////////////////
-  ///Funcion para regresar el valor del campo
-  ///indicado de la consulta indicada
-  ///para : utiles.php function Get_Tabla()
-  //////////////////////////////////////////////////
-  function Get_Datos($pConsulta){   
-   $aDatos=mysql_fetch_array($pConsulta);
-     error("5");
-   return $aDatos;
-  }
+    function f_array($query){
+        return @mysql_fetch_assoc($query);
+    }
 
-  //////////////////////////////////////////////////
-  ///Funcion que devuelve el numero del error  
-  ///obtenido en un a consulta
-  ///para : utiles.php function error()
-  /////////////////////////////////////////////////
-  function GetNumError(){
-    $numError=mysql_errno();
-    return $numError;
-  }
-   
-
-  ///////////////////////////////////////////////////
-  ///Funcion que devuelve la descripción del error  
-  ///obtenido en un a consulta
-  ///para : Utiles.php function error()
-  ///////////////////////////////////////////////////
-  function GetDescError(){ 
-    $descError=mysql_error();
-    return $descError;
-  }
-
-
-  ///////////////////////////////////////////////////
-  ///Funcion que crea una tabla temporal 
-  ///para trabajar con ella
-  ///para : general
-  ///////////////////////////////////////////////////
-  function CrearTable($Nomtabla,$Campos,$Tablas,$Condicion)
-  {
-    global  $tmpTable; 
-
-               $enunSQL = " CREATE TEMPORARY TABLE ";
-    $enunSQL = $enunSQL . $Nomtabla;
-    $enunSQL = $enunSQL . " TYPE=HEAP ";
-    $enunSQL = $enunSQL . " SELECT ";
-    $enunSQL = $enunSQL . $Campos;
-    $enunSQL = $enunSQL . " FROM ";
-    $enunSQL = $enunSQL . $Tablas;
-    $enunSQL = $enunSQL . $Condicion;
-    $enunSQL = $enunSQL . ";";
-    $tmpTable=mysql_query($enunSQL); 
-  }
+    function f_num($query){
+        return @mysql_num_rows($query);
+    }
+    
+    function select($db){
+        $result = @mysql_select_db($db,$this->conexion);
+        if($result){
+            $this->data_base = $db; 
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    function free_sql($query){
+        mysql_free_result($query);
+    }
+}
 ?>

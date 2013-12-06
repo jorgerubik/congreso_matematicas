@@ -93,7 +93,7 @@
 				}	
 			}
 		}
-
+		require('creapdf.php');
 		if($evaluacion == "ACEPTADO"){
 			$query_registro_evaluacion = "UPDATE ponencias_oral SET aceptado_resumen_oral = 'SI', observaciones_oral = '".$comentario_aceptado."' WHERE id_ponencia_oral = '".$id_trabajo."'";
 			$r_registro_evaluacion = mysql_query($query_registro_evaluacion);

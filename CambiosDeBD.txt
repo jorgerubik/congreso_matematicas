@@ -1,6 +1,7 @@
 Cambiar datos en:
 aut_config.inc.php //datos de la conexión
 script/db.php //datos de conexion
+script/conexion.php //datos de conexion
 cambio de enviar.php /*modificar estas variables por el correo deseado*/
 /////$mail->Username = "jorgedionicio.rubik@gmail.com"; //ness.reaper@gmail.com
 /////$mail->Password = "descartesakant"; //ask514ion497

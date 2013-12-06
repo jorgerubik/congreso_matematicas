@@ -93,7 +93,7 @@
 				}	
 			}
 		}
-
+		require('creapdf.php');
 		if($evaluacion == "ACEPTADO"){
 			$query_registro_evaluacion = "UPDATE ponencias_cartel SET aceptado_resumen_cartel = 'SI', observaciones_cartel = '".$comentario_aceptado."' WHERE id_ponencia_cartel = '".$id_trabajo."'";
 			$r_registro_evaluacion = mysql_query($query_registro_evaluacion);
