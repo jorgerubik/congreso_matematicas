@@ -1,7 +1,7 @@
 <?php
  
 require('fpdf/fpdf.php');
-require('script/conexion.php');
+//require('script/conexion.php');
 header("Content-Type: text/html; charset=iso-8859-1 ");
  
 class PDF extends FPDF
@@ -54,28 +54,25 @@ class PDF extends FPDF
         $this->Cell(35,25,'',0,0,'C',$this->Image('imagenes/logo_congreso.jpeg', 50,41, 105));
         
         // clave,categoría y modalidad
-        $this->Cell(-190,110,utf8_decode('Clave del trabajo:'),0,0,'C');
-        $this->Cell(190,117,utf8_decode('Categoría:'),0,0,'C');
-        $this->Cell(-190,125,utf8_decode('Modalidad:'),0,0,'C');
-
+        $this->Text(150,64,utf8_decode('Clave del trabajo:'));
         //Cuerpo de la carta
-        $this->Cell(-80,130,utf8_decode('Estimado(s):'),0,0,'C');
-        $this->Cell(80,137,utf8_decode(''),0,0,'C');
-        $this->Cell(-10,160,utf8_decode('Tenemos el agrado de comunicarle(s) que su PONENCIA ORAL:'),0,0,'C');
-        $this->Cell(100,170,utf8_decode(' '),0,0,'C');
-        $this->Cell(-200,180,utf8_decode('Presentado para este congreso, ha sido ACEPTADO.'),0,0,'C');
-        $this->Cell(175,190,utf8_decode('El comité evaluador le(s) recomienda:'),0,0,'C');
-        $this->Cell(-200,200,utf8_decode(''),0,0,'C');
-        $this->Cell(320,210,utf8_decode('La Ponencia será presentado el día y fecha que se le indique, en caso omiso quedara fuera de concurso.'),0,0,'C');
-        $this->Cell(-345,220,utf8_decode('La estructura de la ponencia la puede consultar en el menú de presentaciones de la página:'),0,0,'C');
-        $this->Cell(290,230,utf8_decode('http://congresomatematicas.cuautitlan2.unam.mx'),0,0,'C');
-        $this->Cell(-300,260,utf8_decode('Sin más por el momento, quedamos de usted.'),0,0,'C');
-        $this->Cell(250,280,utf8_decode('Atentamente'),0,0,'C');
-        $this->Cell(-200,290,utf8_decode('"Por mi Raza Hablará el Espíritu"'),0,0,'C');
-        $this->Cell(230,300,utf8_decode('Cuautitlán Izcalli, Edo, Méx. a 10 de diciembre de 2013'),0,0,'C');
+        $this->Text(10,70,utf8_decode('Estimado(s):'));
+        //$this->Text(10,73,utf8_decode(''));
+        $this->Text(10,100,utf8_decode('Tenemos el agrado de comunicarle (s) que su TALLER:'));
+        //$this->Cell(100,170,utf8_decode(' '),0,0,'C');
+        $this->Text(10,115,utf8_decode('Presentado para este congreso, ha sido ACEPTADO.'));
+        $this->Text(10,120,utf8_decode('El comité evaluador le (s) recomienda:'));
+        //$this->Cell(-200,200,utf8_decode(''),0,0,'C');
+        
+        $this->Text(10,135,utf8_decode('Se le sugiere cumplir con los lineamientos del congreso, mismos que puede seguir consultando en la página: '));
+        $this->Text(10,140,utf8_decode('http://congresomatematicas.cuautitlan2.unam.mx'));
+        $this->Text(10,145,utf8_decode('"Sin más por el momento, quedamos de usted."'));
+        $this->Text(10,150,utf8_decode('Atentamente '));
+        $this->Text(20,150,utf8_decode('“Por mi Raza Hablará el Espíritu” '));
+        $this->Text(20,150,utf8_decode('Cuautitlán Izcalli, Edo, Méx. a 10 de diciembre de 2013'));
        
-        $this->Cell(-130,450,utf8_decode("Dr. Juan Alfonso Oaxaca Luna                                                                    Dra. María del Carmen Valderrama Bravo"),0,0,'C');
-        $this->Cell(118,470,utf8_decode('Coordinadores generales del congreso'),0,0,'C');
+        $this->Text(20,225,utf8_decode("Dr. Juan Alfonso Oaxaca Luna                                                                    Dra. María del Carmen Valderrama Bravo"));
+        $this->Text(65,240,utf8_decode('Coordinadores generales del congreso'));
        
        //firmas
         $this->Cell(200,100,'',0,0,'C',$this->Image('imagenes/firma_oaxaca.jpeg', 10,180, 100));
@@ -89,9 +86,9 @@ class PDF extends FPDF
  
 }
 //BD
-$mysql = new mysql;
-    $mysql->connect();
-   $mysql->select($data_base);
+//$mysql = new mysql;
+  //  $mysql->connect();
+   //$mysql->select($data_base);
     
 
 //La consulta
@@ -107,33 +104,41 @@ $mysql = new mysql;
 // $falla  = $result['Desc_falla'];
    $id = $id_trabajo;
    $titulo = $titulo_trabajo;
-   $modalidad = $id_modalidad;
-   $categoria = $id_categoria;
+   
    $rfc = $RFC;
    $aceptado = $comentario_aceptado;
-
-
+   $rechazado = $comentario_rechazado;
+   $nombre = array_values($nombre_usuario);
+   $primerap = array_values($apellido_paterno);
+   $segundoap = array_values($apellido_materno);
  
         $pdf = new PDF();             
+        //$pdf -> SetLeftMargin(30);
         $pdf->AddPage('P', 'Letter'); 
-
  //insertar datos de BD en pdf
  //$pdf->SetFont('Arial', 'B', 14);
 //$pdf->Cell(70, 10, "Nombre de Quien Reporta", 1);
 //$pdf->Cell(80,137, $describe, 1);
 //$pdf->Ln(10);
 //$pdf->SetFont('Arial', 'I', 12);
-$pdf ->Cell(350,60, utf8_decode($id), 0,0, 'C');    
-$pdf ->Cell(-350,68, utf8_decode($categoria), 0,0, 'C');  
-$pdf ->Cell(350,76, utf8_decode($modalidad), 0,0, 'C');  
-$pdf->Cell(-650,100, utf8_decode($rfc), 0,0, 'C');
-$pdf ->Cell(650, 120,utf8_decode($titulo), 0,0, 'C');
-$pdf ->Cell(-650, 150, utf8_decode($aceptado),0,0, 'C');
+$pdf ->Text(180,64, utf8_decode($id));    
+//
+ $pdf -> SetXY(10,71);
+for ($i=0; $i < 5 ; $i++) { 
+    
+    $pdf -> MultiCell(80,5, utf8_decode($nombre[$i].' '.$primerap[$i].' '.$segundoap[$i]),0,'L');
+    //$pdf -> Ln(1);
+}
+//$pdf->Text(10,75, utf8_decode($rfc));
+$pdf -> SetXY(10,102);
+$pdf ->MultiCell(0,3, utf8_decode($titulo),0,'L');
+$pdf -> SetXY(10,122);
+$pdf ->MultiCell(0,3,utf8_decode($aceptado),0,'L'); //Text(10,105, utf8_decode($rechazado));
 //$pdf->Cell(50, 10, $falla, 0);
 
 //$pdf->Output('mipdf.pdf','d');    
 
-       $pdf->Output($id.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
+       $pdf->Output('cartas/'.$id.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
       //$pdf->Output(); //esta linea solo muestra el pdf en el navegador    
 //Cerramos la Conexion a MySQL si existe
 

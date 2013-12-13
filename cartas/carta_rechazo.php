@@ -1,7 +1,7 @@
 <?php
  
 require('fpdf/fpdf.php');
-require('script/conexion.php');
+//require('script/conexion.php');
 header("Content-Type: text/html; charset=iso-8859-1 ");
  
 class PDF extends FPDF
@@ -54,23 +54,23 @@ class PDF extends FPDF
         $this->Cell(35,25,'',0,0,'C',$this->Image('imagenes/logo_congreso.jpeg', 50,41, 105));
         
         // clave,categoría y modalidad
-        $this->Cell(-190,110,utf8_decode('Clave del trabajo:'),0,0,'C');
+        $this->Text(150,64,utf8_decode('Clave del trabajo:'));
         //Cuerpo de la carta
-        $this->Cell(-80,130,utf8_decode('Estimado(s):'),0,0,'C');
-        $this->Cell(80,137,utf8_decode(''),0,0,'C');
-        $this->Cell(-10,160,utf8_decode('Por este medio le (s) comunicamos que su  PROPUESTA:'),0,0,'C');
-        $this->Cell(100,170,utf8_decode(' '),0,0,'C');
-        $this->Cell(-200,180,utf8_decode('Presentado para este congreso, ha sido RECHAZADA.'),0,0,'C');
-        $this->Cell(195,190,utf8_decode('Los motivos que originan la decisión son los siguientes:'),0,0,'C');
-        $this->Cell(-200,200,utf8_decode(''),0,0,'C');
+        $this->Text(10,70,utf8_decode('Estimado(s):'));
+        //$this->Text(10,73,utf8_decode(''));
+        $this->Text(10,100,utf8_decode('Por este medio le (s) comunicamos que su  PROPUESTA:'));
+        //$this->Cell(100,170,utf8_decode(' '),0,0,'C');
+        $this->Text(10,115,utf8_decode('Presentado para este congreso, ha sido RECHAZADA.'));
+        $this->Text(10,120,utf8_decode('Los motivos que originan la decisión son los siguientes:'));
+        //$this->Cell(-200,200,utf8_decode(''),0,0,'C');
         
-        $this->Cell(200,260,utf8_decode('Sin más por el momento, quedamos de usted.'),0,0,'C');
-        $this->Cell(-250,280,utf8_decode('Atentamente'),0,0,'C');
-        $this->Cell(290,290,utf8_decode('"Por mi Raza Hablará el Espíritu"'),0,0,'C');
-        $this->Cell(-260,300,utf8_decode('Cuautitlán Izcalli, Edo, Méx. a 10 de diciembre de 2013'),0,0,'C');
+        $this->Text(10,135,utf8_decode('Sin más por el momento, quedamos de usted.'));
+        $this->Text(10,140,utf8_decode('Atentamente'));
+        $this->Text(20,145,utf8_decode('"Por mi Raza Hablará el Espíritu"'));
+        $this->Text(20,150,utf8_decode('Cuautitlán Izcalli, Edo, Méx. a 10 de diciembre de 2013'));
        
-        $this->Cell(350,450,utf8_decode("Dr. Juan Alfonso Oaxaca Luna                                                                    Dra. María del Carmen Valderrama Bravo"),0,0,'C');
-        $this->Cell(-370,470,utf8_decode('Coordinadores generales del congreso'),0,0,'C');
+        $this->Text(20,225,utf8_decode("Dr. Juan Alfonso Oaxaca Luna                                                                    Dra. María del Carmen Valderrama Bravo"));
+        $this->Text(65,240,utf8_decode('Coordinadores generales del congreso'));
        
        //firmas
         $this->Cell(200,100,'',0,0,'C',$this->Image('imagenes/firma_oaxaca.jpeg', 10,180, 100));
@@ -84,9 +84,9 @@ class PDF extends FPDF
  
 }
 //BD
-$mysql = new mysql;
-    $mysql->connect();
-   $mysql->select($data_base);
+//$mysql = new mysql;
+  //  $mysql->connect();
+   //$mysql->select($data_base);
     
 
 //La consulta
@@ -106,7 +106,9 @@ $mysql = new mysql;
    $rfc = $RFC;
    $aceptado = $comentario_aceptado;
    $rechazado = $comentario_rechazado;
-
+   $nombre = array_values($nombre_usuario);
+   $primerap = array_values($apellido_paterno);
+   $segundoap = array_values($apellido_materno);
  
         $pdf = new PDF();             
         //$pdf -> SetLeftMargin(30);
@@ -117,16 +119,24 @@ $mysql = new mysql;
 //$pdf->Cell(80,137, $describe, 1);
 //$pdf->Ln(10);
 //$pdf->SetFont('Arial', 'I', 12);
-$pdf ->Cell(350,60, utf8_decode($id), 0,0, 'C');    
-
-$pdf->Cell(-650,100, utf8_decode($rfc), 0,0, 'C');
-$pdf ->Cell(770, 120,utf8_decode($titulo), 0,0, 'C');
-$pdf ->Cell(-900, 150, utf8_decode($rechazado),0,0, 'C');
+$pdf ->Text(180,64, utf8_decode($id));    
+//
+ $pdf -> SetXY(10,71);
+for ($i=0; $i < 5 ; $i++) { 
+    
+    $pdf -> MultiCell(80,5, utf8_decode($nombre[$i].' '.$primerap[$i].' '.$segundoap[$i]),0,'L');
+    //$pdf -> Ln(1);
+}
+//$pdf->Text(10,75, utf8_decode($rfc));
+$pdf -> SetXY(10,102);
+$pdf ->MultiCell(0,3, utf8_decode($titulo),0,'L');
+$pdf -> SetXY(10,122);
+$pdf ->MultiCell(0,3,utf8_decode($rechazado),0,'L'); //Text(10,105, utf8_decode($rechazado));
 //$pdf->Cell(50, 10, $falla, 0);
 
 //$pdf->Output('mipdf.pdf','d');    
 
-       $pdf->Output($id.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
+       $pdf->Output('cartas/'.$id.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
       //$pdf->Output(); //esta linea solo muestra el pdf en el navegador    
 //Cerramos la Conexion a MySQL si existe
 

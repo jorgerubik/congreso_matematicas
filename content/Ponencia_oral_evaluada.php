@@ -95,7 +95,7 @@
 		}
 		//require('creapdf.php');
 		if($evaluacion == "ACEPTADO"){
-			require('ponencia_aceptado_pdf.php');
+			require('cartas/ponencia_aceptado_pdf.php');
 			$query_registro_evaluacion = "UPDATE ponencias_oral SET aceptado_resumen_oral = 'SI', observaciones_oral = '".$comentario_aceptado."' WHERE id_ponencia_oral = '".$id_trabajo."'";
 			$r_registro_evaluacion = mysql_query($query_registro_evaluacion);
 			echo "<form action='lista_trabajos.php' method='POST'>";
@@ -106,7 +106,7 @@
 			echo "</form>";
 		}
 		else if ($evaluacion == "RECHAZADO") {
-			require('carta_rechazo.php');
+			require('cartas/carta_rechazo.php');
 			$query_registro_evaluacion = "UPDATE ponencias_oral SET aceptado_resumen_oral = 'NO', observaciones_oral = '".$comentario_rechazado."' WHERE id_ponencia_oral = '".$id_trabajo."'";
 			$r_registro_evaluacion = mysql_query($query_registro_evaluacion);
 			echo "<form action='lista_trabajos.php' method='POST'>";
